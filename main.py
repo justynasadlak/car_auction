@@ -78,40 +78,6 @@ def get_user_input(msg: str, return_type: type, options: list = None, flags: lis
         except ValueError:
             print('Niepoprawna wartość')
 
-# @sum_time
-# def get_user_input(msg: str, return_type: type, options: list = None, flags: list = None):
-#     ''' type jest callable, więc mozemy potraktować tę funkcję jako wyzszego rzędu '''
-#     while True:
-#         value = input(msg) #wyświetlenie komunikatu przekazanego w parametrze msg i pobranie wartości wpisanej przez uzytkownika
-
-#         try:
-#             value_cast = return_type(value) #sprawdzenie czy wpisana wartość jest oczekiwanego typu
-
-#             if options is not None and len(options): 
-#                 if value_cast not in options: #jeśli wpisana wartość nie jest jedną z oczekiwanych wartości, wyświetlenie komunikatu z dopuszczalnymi wartościami i kontynuacja kolejnej iteracji
-#                     print(f'Podaj jedną z dostępnych wartości: {", ".join(map(str, options))}')
-#                     continue
-
-#             if flags is not None and len(flags):
-#                 if ('Positive' in flags) and return_type in [int, float]:
-#                     if value_cast <= 0: #wyświetlenie komunikatu, jeśli wpisana wartość nie jest dodatnia w przypadku flagi 'Positive' i oczekiwanego typu int, float; kontynuacja kolejnej iteracji
-#                         print('Podaj dodatnią wartość.')
-#                         continue
-
-#                 if ('NotEmpty' in flags) and return_type in [str]:
-#                     if len(value_cast) == 0: #wyświetlenie komunikatu, jeśli nic nie zostało wpisane w przypadku flagi 'NotEmpty' i oczekiwanego typu string; kontynuacja kolejnej iteracji
-#                         print('Musisz coś wpisać...')
-#                         continue
-
-#                     if value_cast.isspace(): #wyświetlenie komunikatu, jeśli wpisano tylko białe znaki; kontynuacja kolejnej iteracji
-#                         print('Naprawdę musisz coś wpisać...')
-#                         continue
-
-#             return value_cast
-#         except ValueError: #obsługa wyjątku wpisania wartości w innym typie niz oczekiwany
-#             print('Niepoprawna wartość')
-
-
 class Vehicle(ABC):
     ''' Klasa abstrakcyjna pojazdu ogólnego'''
     def __init__(self, brand: str, model: str, year: int, price: float) -> None:
